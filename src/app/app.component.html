@@ -4,7 +4,22 @@
 
 <!-- *ngIf -->
 <div *ngIf="title === 'Fernando'">
-  Bienvenido Fernando Callasaca Acuña
+  Bienvenido Fernando...!
+</div>
+
+<div *ngIf="title === 'Julian'">
+  Bienvenido Julian...!
+</div>
+
+<div *ngIf="title === 'Camilo'">
+  Bienvenido Camilo...!
+</div>
+
+<div [ngSwitch]="title"> <!-- Colocamos la variable a evaluarse -->
+  <p *ngSwitchCase="'Fernando'">Bienvenido Fernando</p>
+  <p *ngSwitchCase="'Julian'">Bienvenido Julian</p>
+  <p *ngSwitchCase="'Camilo'">Bienvenido Camilo</p>
+  <p *ngSwitchDefault>No hay match</p> <!-- En caso que no haga match -->
 </div>
 
 <!-- Agregamos un item -->
@@ -20,3 +35,8 @@
   </li>
 </ul>
 
+<div *ngFor="let product of products; index as i">
+  {{ product.title }}
+  <img [src]="product.image" alt="Imagen de un producto">
+  {{ product.price }}
+</div>
