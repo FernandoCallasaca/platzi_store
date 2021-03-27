@@ -2,6 +2,8 @@
 <input type="text" [(ngModel)]="title"> <br>
 {{ title }} <br><br>
 
+<!-- <app-product></app-product> -->
+
 <!-- *ngIf -->
 <div *ngIf="title === 'Fernando'">
   Bienvenido Fernando...!
@@ -35,8 +37,14 @@
   </li>
 </ul>
 
-<div *ngFor="let product of products; index as i">
+<!-- <div *ngFor="let product of products; index as i">
   {{ product.title }}
   <img [src]="product.image" alt="Imagen de un producto">
   {{ product.price }}
+</div> -->
+<div *ngFor="let product of products; index as i">
+  <!-- en paréntesis() = Output ---- En corchetes[] son los inputs --- NOMBRES DE VARIABLES CREADAS-->
+  <!-- $event = recibe el valor que enviamos con el emit del EventEmitter -->
+  <app-product (productClicked)="clickProduct($event)" [product]="product"></app-product>
 </div>
+
