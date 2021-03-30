@@ -1,0 +1,48 @@
+<!-- Aquí agregamos un ngModel linkeado con una variable así los cambios se hacen en tiempo real -->
+<input type="text" [(ngModel)]="title"> <br>
+{{ title }} <br><br>
+
+<input type="number" [(ngModel)]="number"><br>
+<!-- utilizamos nuestro pipe creado  -->
+{{number | exponential}} <br><br>
+<!-- <app-product></app-product> -->
+
+<!-- *ngIf -->
+<div *ngIf="title === 'Fernando'">
+  Bienvenido Fernando...!
+</div>
+
+<div *ngIf="title === 'Julian'">
+  Bienvenido Julian...!
+</div>
+
+<div *ngIf="title === 'Camilo'">
+  Bienvenido Camilo...!
+</div>
+
+<div [ngSwitch]="title"> <!-- Colocamos la variable a evaluarse -->
+  <p *ngSwitchCase="'Fernando'">Bienvenido Fernando</p>
+  <p *ngSwitchCase="'Julian'">Bienvenido Julian</p>
+  <p *ngSwitchCase="'Camilo'">Bienvenido Camilo</p>
+  <p *ngSwitchDefault>No hay match</p> <!-- En caso que no haga match -->
+</div>
+
+<!-- Agregamos un item -->
+<button (click)="addItem(title)">Add item</button>
+
+<!-- *ngFor -> Iteramos un array -->
+<!-- también puedes sacar su id con "index as i" -->
+<ul>
+  <li *ngIf="items.length === 0">La lista está vacía</li>
+  <li *ngFor="let name of items; let i = index">
+    {{ (i + 1) + '.- ' + name }}
+    <button (click)="removeItem(i)">Remove</button>
+  </li>
+</ul>
+
+<!-- <div *ngFor="let product of products; index as i">
+  {{ product.title }}
+  <img [src]="product.image" alt="Imagen de un producto">
+  {{ product.price }}
+</div> -->
+
