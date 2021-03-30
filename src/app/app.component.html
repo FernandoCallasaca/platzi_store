@@ -42,9 +42,13 @@
   <img [src]="product.image" alt="Imagen de un producto">
   {{ product.price }}
 </div> -->
-<div *ngFor="let product of products; index as i">
+<div class="product-grid">
   <!-- en paréntesis() = Output ---- En corchetes[] son los inputs --- NOMBRES DE VARIABLES CREADAS-->
-  <!-- $event = recibe el valor que enviamos con el emit del EventEmitter -->
-  <app-product (productClicked)="clickProduct($event)" [product]="product"></app-product>
+  <!-- $event = recibe el valor que enviamos con el "emit" del "EventEmitter" -->
+  <app-product
+    *ngFor="let product of products; index as i"
+    (productClicked)="clickProduct($event)"
+    [product]="product">
+  </app-product>
 </div>
 

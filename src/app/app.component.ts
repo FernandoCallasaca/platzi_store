@@ -59,16 +59,16 @@ export class AppComponent {
   ];
 
   // Creamos un método para agregar al arreglo
-  addItem (element) {
+  addItem(element): void {
     this.items.push(element);
   }
 
   // Creamos un método para eliminar el arreglo
-  removeItem (index : number) {
+  removeItem(index: number): void {
     this.items.splice( index, 1 );
   }
 
-  clickProduct(id: number) {
+  clickProduct(id: number): void {
     console.log('Product');
     console.log(id);
   }

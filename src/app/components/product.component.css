@@ -1,0 +1,14 @@
+/* Elemento padre que crea este componente */
+:host {
+  margin: 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+img {
+  max-width: 100%;
+  height: 60%;
+}

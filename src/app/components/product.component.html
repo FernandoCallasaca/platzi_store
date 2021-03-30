@@ -1,4 +1,10 @@
-<h3>{{product.title}}</h3>
+<!-- uppercase un pipe que convierte todo el texto en mayúsculas -->
+<h3>{{product.title | uppercase}}</h3>
 <img [src]="product.image" alt="Imagen de un producto">
-<strong>{{product.price}}</strong>
+<!-- currency es un pipe que le pone un signo de una moneda -->
+<strong>{{product.price | currency:'S/. '}}</strong>
+<!-- slice un pipe que corta desde que punto hasta que punto tiene que cortar -->
+<p>{{product.description | slice:0:10 }}</p>
+<!-- date es un pipe en este caso muestra en español porque en el angular module exportamos el idioma -->
+<p>{{today | date:'EEEE, d LLLL yyyy'}}</p>
 <button (click)="addCart()">Agregar al carrito</button>
