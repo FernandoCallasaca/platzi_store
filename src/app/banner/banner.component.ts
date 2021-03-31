@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-  // Creamos un arreglo de tipo string para colocar la urls de los banners
+  // 0.- Creamos un arreglo de tipo string para colocar la urls de los banners
   images: string[] = [
     'assets/images/banner-1.jpg',
     'assets/images/banner-2.jpg',
