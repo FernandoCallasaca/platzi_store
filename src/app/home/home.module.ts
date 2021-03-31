@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
+// Para reconocer nuestras directivas (ngFor, ngSwitch, ngIf, [(ngModel)])
+import { CommonModule } from '@angular/common';
+
 
 // Importamos el HomeRoutingModule
 import { HomeRoutingModule } from './home-routing.module';
 
 // Componentes del Módulo del Home
-import { HomeComponent } from './home.component';
+import { HomeComponent } from './components/home/home.component';
 import { BannerComponent } from './components/banner/banner.component';
 
 @NgModule({
@@ -15,6 +18,7 @@ import { BannerComponent } from './components/banner/banner.component';
   ],
   imports: [
     HomeRoutingModule, // Importamos la ruta
+    CommonModule
   ]
 })
 

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+// Importamos el PreloadAllModules para que haga la precarga
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 // Importamos los componentes a los que nos dirigiremos mediante al path
-import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 import { DemoComponent } from './demo/demo.component';
@@ -24,7 +24,9 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        // component: HomeComponent -> Ya no cargará el componente home
+        // component: HomeComponent -> Ya no cargará el componente home // Aquí cargamos un componente
+        // Para cargar un módulo sería de la siguiente forma
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'products',
@@ -51,7 +53,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes , { // Aquí agregamos un parámetro json para que precargue y no demore
+    // Demora porque tiene que pedir a los archivos js
+    // Aquí resolvemos escogiendo una estrategia de precarga
+    // Escogemos un PreloadAllModules
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
