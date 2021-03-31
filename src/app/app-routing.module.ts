@@ -24,7 +24,7 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        component: HomeComponent
+        // component: HomeComponent -> Ya no cargará el componente home
       },
       {
         path: 'products',
