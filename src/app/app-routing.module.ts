@@ -3,11 +3,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 // Importamos los componentes a los que nos dirigiremos mediante al path
-import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 import { DemoComponent } from './demo/demo.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { LayoutComponent } from './layout/layout.component';
 // Importo guardión admin
 import { AdminGuard } from './shared/guards/admin/admin.guard';
@@ -32,13 +30,14 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        component: ProductsComponent,
-        canActivate: [AdminGuard] // le enviamos un guardión dentro del arreglo
+        // component: ProductsComponent,
+        canActivate: [AdminGuard], // le enviamos un guardión dentro del arreglo
+        loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
       },
-      {
-        path: 'products/:id', // products/1 => le enviamos un parámetro dinámico
-        component: ProductDetailComponent
-      },
+      // {
+      //   path: 'products/:id', // products/1 => le enviamos un parámetro dinámico
+      //   // component: ProductDetailComponent
+      // },
       {
         path: 'contact',
         component: ContactComponent,

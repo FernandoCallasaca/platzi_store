@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ProductComponent } from './product-model/product.component';
 import { CartComponent } from './cart/cart.component';
 
 // Para colocar las fechas en el idioma español
@@ -15,11 +14,9 @@ import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(localeEs);
 
-import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 import { DemoComponent } from './demo/demo.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { LayoutComponent } from './layout/layout.component';
 // Importamos las librerías
 import { SharedModule } from './shared/shared.module'; // el módulo de todos los compartidos
@@ -29,13 +26,10 @@ import { CoreModule } from './core/core.module'; // el Core donde están nuestro
   // En declaraciones, pipes, directivas colocamos el componente
   declarations: [
     AppComponent,
-    ProductComponent,
     CartComponent,
-    ProductsComponent,
     ContactComponent,
     DemoComponent,
     PageNotFoundComponent,
-    ProductDetailComponent,
     LayoutComponent
   ],
   imports: [
