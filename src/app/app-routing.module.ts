@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 // Importamos los componentes a los que nos dirigiremos mediante al path
-import { DemoComponent } from './demo/demo.component';
 import { LayoutComponent } from './layout/layout.component';
 // Importo guardión admin
 import { AdminGuard } from './shared/guards/admin/admin.guard';
@@ -43,7 +42,7 @@ const routes: Routes = [
       },
       {
         path: 'demo',
-        component: DemoComponent
+        loadChildren: () => import('./demo/demo.module').then(m => m.DemoModule)
       }
     ]
   },
