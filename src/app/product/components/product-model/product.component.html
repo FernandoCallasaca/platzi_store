@@ -7,5 +7,5 @@
 <p>{{product.description | slice:0:10 }}</p>
 <!-- date es un pipe en este caso muestra en español porque en el angular module exportamos el idioma -->
 <p>{{today | date:'EEEE, d LLLL yyyy'}}</p>
-<button (click)="addCart()">Agregar al carrito</button>
+<button mat-raised-button color="primary" (click)="addCart()">Agregar al carrito</button>
 <a [routerLink]="['/products', product.id]">Ver el producto</a>
