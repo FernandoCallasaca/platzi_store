@@ -14,9 +14,7 @@ import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(localeEs);
 
-import { ContactComponent } from './contact/contact.component';
 import { DemoComponent } from './demo/demo.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LayoutComponent } from './layout/layout.component';
 // Importamos las librerías
 import { SharedModule } from './shared/shared.module'; // el módulo de todos los compartidos
@@ -27,9 +25,7 @@ import { CoreModule } from './core/core.module'; // el Core donde están nuestro
   declarations: [
     AppComponent,
     CartComponent,
-    ContactComponent,
     DemoComponent,
-    PageNotFoundComponent,
     LayoutComponent
   ],
   imports: [

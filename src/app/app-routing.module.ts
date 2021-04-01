@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 // Importamos los componentes a los que nos dirigiremos mediante al path
-import { ContactComponent } from './contact/contact.component';
 import { DemoComponent } from './demo/demo.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LayoutComponent } from './layout/layout.component';
 // Importo guardión admin
 import { AdminGuard } from './shared/guards/admin/admin.guard';
@@ -40,8 +38,8 @@ const routes: Routes = [
       // },
       {
         path: 'contact',
-        component: ContactComponent,
-        canActivate: [AdminGuard] // le enviamos un guardión dentro del arreglo
+        canActivate: [AdminGuard], // le enviamos un guardión dentro del arreglo
+        loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule),
       },
       {
         path: 'demo',
@@ -51,7 +49,7 @@ const routes: Routes = [
   },
   {
     path: '**', // Con doble * significa que no hubo match
-    component: PageNotFoundComponent
+    loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
   }
 ];
 
