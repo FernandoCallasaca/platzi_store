@@ -9,6 +9,8 @@ import { DemoComponent } from './demo/demo.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { LayoutComponent } from './layout/layout.component';
+// Importo guardión admin
+import { AdminGuard } from './shared/guards/admin/admin.guard';
 
 const routes: Routes = [
   {
@@ -30,7 +32,8 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        component: ProductsComponent
+        component: ProductsComponent,
+        canActivate: [AdminGuard] // le enviamos un guardión dentro del arreglo
       },
       {
         path: 'products/:id', // products/1 => le enviamos un parámetro dinámico
@@ -38,13 +41,14 @@ const routes: Routes = [
       },
       {
         path: 'contact',
-        component: ContactComponent
+        component: ContactComponent,
+        canActivate: [AdminGuard] // le enviamos un guardión dentro del arreglo
       },
+      {
+        path: 'demo',
+        component: DemoComponent
+      }
     ]
-  },
-  {
-    path: 'demo',
-    component: DemoComponent
   },
   {
     path: '**', // Con doble * significa que no hubo match

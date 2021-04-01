@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ProductComponent } from './components/product.component';
+import { ProductComponent } from './product-model/product.component';
 import { CartComponent } from './cart/cart.component';
 
 // Para colocar las fechas en el idioma español
@@ -15,16 +15,15 @@ import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(localeEs);
 
-import { ExponentialPipe } from './exponential.pipe';
-import { HighlightDirective } from './highlight.directive';
 import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 import { DemoComponent } from './demo/demo.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { LayoutComponent } from './layout/layout.component';
+// Importamos las librerías
+import { SharedModule } from './shared/shared.module'; // el módulo de todos los compartidos
+import { CoreModule } from './core/core.module'; // el Core donde están nuestros servicios
 
 @NgModule({
   // En declaraciones, pipes, directivas colocamos el componente
@@ -32,13 +31,9 @@ import { LayoutComponent } from './layout/layout.component';
     AppComponent,
     ProductComponent,
     CartComponent,
-    ExponentialPipe,
-    HighlightDirective,
     ProductsComponent,
     ContactComponent,
     DemoComponent,
-    HeaderComponent,
-    FooterComponent,
     PageNotFoundComponent,
     ProductDetailComponent,
     LayoutComponent
@@ -48,6 +43,8 @@ import { LayoutComponent } from './layout/layout.component';
     AppRoutingModule,
     // Importamos ya que es una librería
     FormsModule,
+    SharedModule,
+    CoreModule,
   ],
   // En este provider utilizamos el idioma local
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
