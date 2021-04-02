@@ -4,5 +4,9 @@ nav > a {
 }
 
 .active {
-  background-color: rgb(51, 230, 236);
+  background-color: rgb(255, 82, 82);
+}
+
+.header-row {
+  width: 100%;
 }

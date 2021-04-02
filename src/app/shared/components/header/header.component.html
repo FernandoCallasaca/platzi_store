@@ -1,7 +1,21 @@
-<nav>
-  <!-- routerLink no hace una recarga como el href -->
-  <!-- routerLinkActive = le damos una clase para que nos diga en qué routerLink se encuentra -->
-  <a routerLink="/home" routerLinkActive="active">Home</a>
-  <a routerLink="/products" routerLinkActive="active">Productos</a>
-  <a routerLink="/contact" routerLinkActive="active">Contacto</a>
-</nav>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <!-- FlexGrid en uso -->
+    <!-- middle-xs = centrar verticalmente -->
+    <!-- between-xs = between -->
+    <div class="row between-xs middle-xs header-row">
+      <nav>
+        <!-- routerLink no hace una recarga como el href -->
+        <!-- routerLinkActive = le damos una clase para que nos diga en qué routerLink se encuentra -->
+        <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+        <a mat-button routerLink="/products" routerLinkActive="active">Productos</a>
+        <a mat-button routerLink="/contact" routerLinkActive="active">Contacto</a>
+      </nav>
+      <a mat-raised-button matBadge="4" matBadgeColor="warn">
+        <mat-icon>shopping_cart</mat-icon>
+        Carrito
+      </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+

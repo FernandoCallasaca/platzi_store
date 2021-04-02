@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; // para correr el [(ngModel)]
 
 import { DemoComponent } from './components/demo/demo.component';
 import { DemoRoutingModule } from './demo-routing.module';
