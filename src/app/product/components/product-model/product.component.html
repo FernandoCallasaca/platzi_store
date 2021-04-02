@@ -2,7 +2,7 @@
 <h3 appHighlight>{{product.title | uppercase}}</h3>
 <img [src]="product.image" alt="Imagen de un producto">
 <!-- currency es un pipe que le pone un signo de una moneda -->
-<strong>{{product.price | currency:'S/. '}}</strong>
+<strong>{{product.price | currency: ' nuevos soles'}}</strong>
 <!-- slice un pipe que corta desde que punto hasta que punto tiene que cortar -->
 <p>{{product.description | slice:0:10 }}</p>
 <!-- date es un pipe en este caso muestra en español porque en el angular module exportamos el idioma -->
