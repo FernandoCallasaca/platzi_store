@@ -28,13 +28,14 @@ export class ProductDetailComponent implements OnInit {
       // El tipado Params es un Json que tiene la clave de acuerdo al nombre de la ruta en el routing
       const id = params.id;
       console.log(id);
-      this.productService.getProduct(id).subscribe(
-        product => {
-          this.product = product;
-        }
-      );
-      console.log(this.product);
+      this.fetchProduct(id);
     });
   }
 
+  fetchProduct(id: string): void {
+    this.productService.getProduct(id).subscribe(product => {
+        this.product = product;
+      }
+    );
+  }
 }
