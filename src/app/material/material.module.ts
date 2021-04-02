@@ -6,12 +6,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatCardModule } from '@angular/material/card';
 
 const importsApi = [
   MatButtonModule,
   MatToolbarModule,
   MatIconModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatCardModule
 ];
 @NgModule({
   declarations: [],

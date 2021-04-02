@@ -1,11 +1,32 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      {{ product.title | uppercase }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{product.price | currency: ' nuevos soles'}}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <div class="crop-image">
+    <img [src]="product.image" alt="Imagen de un producto">
+  </div>
+  <mat-card-content>
+    <p>{{ product.description | slice:0:10 }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="addCart()">Agregar al carrito</button>
+    <a mat-raised-button [routerLink]="['/products', product.id]">Ver el producto</a>
+  </mat-card-actions>
+</mat-card>
+
 <!-- uppercase un pipe que convierte todo el texto en mayúsculas -->
-<h3 appHighlight>{{product.title | uppercase}}</h3>
-<img [src]="product.image" alt="Imagen de un producto">
+<!-- <h3 appHighlight>{{product.title | uppercase}}</h3>
+<img [src]="product.image" alt="Imagen de un producto"> -->
 <!-- currency es un pipe que le pone un signo de una moneda -->
-<strong>{{product.price | currency: ' nuevos soles'}}</strong>
+<!-- <strong>{{product.price | currency: ' nuevos soles'}}</strong> -->
 <!-- slice un pipe que corta desde que punto hasta que punto tiene que cortar -->
-<p>{{product.description | slice:0:10 }}</p>
+<!-- <p>{{product.description | slice:0:10 }}</p> -->
 <!-- date es un pipe en este caso muestra en español porque en el angular module exportamos el idioma -->
-<p>{{today | date:'EEEE, d LLLL yyyy'}}</p>
+<!-- <p>{{today | date:'EEEE, d LLLL yyyy'}}</p>
 <button mat-raised-button color="primary" (click)="addCart()">Agregar al carrito</button>
-<a [routerLink]="['/products', product.id]">Ver el producto</a>
+<a [routerLink]="['/products', product.id]">Ver el producto</a> -->
