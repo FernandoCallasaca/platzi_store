@@ -46,6 +46,11 @@ const routes: Routes = [
       }
     ]
   },
+  // Creamos el admin
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
   {
     path: '**', // Con doble * significa que no hubo match
     loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
