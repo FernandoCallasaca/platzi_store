@@ -7,18 +7,17 @@ import { MaterialModule } from './../material/material.module';
 
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { NavComponent } from './components/nav/nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
 import { TableComponent } from './components/table/table.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 @NgModule({
-  declarations: [ProductFormComponent, NavComponent, TableComponent, DashboardComponent],
+  declarations: [ProductFormComponent, NavComponent, TableComponent, DashboardComponent, ProductListComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
     MaterialModule,
-    LayoutModule,
   ]
 })
 export class AdminModule { }
