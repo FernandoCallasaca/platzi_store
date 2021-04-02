@@ -16,11 +16,19 @@ export class ProductsComponent implements OnInit {
   products: Product[];
 
   ngOnInit(): void {
-    this.products = this.productService.getAllProducts();
+    this.fetchProduct();
   }
 
   clickProduct(id: number): void {
     console.log('Product');
     console.log(id);
+  }
+
+  fetchProduct(): void {
+    this.productService.getAllProducts().subscribe(
+      products => {
+        this.products = products;
+      }
+    );
   }
 }

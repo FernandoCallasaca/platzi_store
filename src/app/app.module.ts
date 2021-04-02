@@ -2,6 +2,8 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 // Agregamos el FormsModule para utilizar el [(ngModel)]
 import { FormsModule } from '@angular/forms';
+// Con esto nuestra aplicación tiene el potencial de hacer peticiones http
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
     SharedModule,
     CoreModule,
     BrowserAnimationsModule,
+    HttpClientModule
   ],
   // En este provider utilizamos el idioma local
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
