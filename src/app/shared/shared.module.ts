@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+// Importando formularios reactivos
+// Tenemos control total, observables para ver qué datos están cambiando
+// Podemos colocar mejores validaciones
+// 1.- Primero importamos ReactiveFormModule
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -21,7 +26,8 @@ import { MaterialModule } from './../material/material.module';
     CommonModule,
     RouterModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   exports: [
     HeaderComponent,

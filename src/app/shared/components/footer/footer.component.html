@@ -13,6 +13,15 @@
         <mat-icon>call</mat-icon>
         <span>953942501</span>
       </div>
+      <div class="row middle-xs">
+        <mat-icon>contact</mat-icon>
+        <mat-form-field>
+          <mat-label>Contacto</mat-label>
+          <input matInput type="text" [formControl]="emailField" placeholder="Ingrese su correo">
+        </mat-form-field>
+        <button mat-raised-button (click)="sendEmail()" [disabled]="emailField.invalid">Enviar</button>
+        <!-- <p *ngIf="emailField.invalid" >El campo no es válido</p> -->
+      </div>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
