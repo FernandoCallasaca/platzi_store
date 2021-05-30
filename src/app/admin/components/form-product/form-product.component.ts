@@ -6,6 +6,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductsService } from './../../../core/services/products/products.service';
 // Importamos para redireccionar y este es una injección de dependencia
 import { Router } from '@angular/router';
+// Importamos a nuestro validators creado personalizado
+import { MyValidators } from './../../../utils/validators';
 
 @Component({
   selector: 'app-form-product',
@@ -46,10 +48,18 @@ export class FormProductComponent implements OnInit {
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
       title: ['', [Validators.required]],
-      price: ['', [Validators.required]],
+      // Traemos nuestro validador creado con un metodo "isPriceValid"
+      // Este método tiene que estar en estático para que aparezca luego de
+      // Instanciar a nuestro validador "MyValidators"
+      price: ['', [Validators.required, MyValidators.isPriceValid]],
       image: [''],
       description: ['', [Validators.required]],
     });
   }
 
+  // Nativo de TypeScript y Javascript
+  // Get set -> get devuelve un valor
+  get priceField(): any {
+    return this.form.get('price');
+  }
 }
