@@ -39,7 +39,7 @@ export class ProductsService {
     return this.http.post(`${environment.urlApi}/products`, product);
   }
 
-  // Esditarmos un productos
+  // Editamos un productos
   updateProduct(id: string, changes: Partial<Product>): Observable<any> {
     return this.http.put(`${environment.urlApi}/products/${id}`, changes);
   }

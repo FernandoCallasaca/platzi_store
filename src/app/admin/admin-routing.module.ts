@@ -14,6 +14,11 @@ const routes: Routes = [
     component: NavComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
+      },
+      {
         path: 'modelcreate',
         component: ProductFormComponent,
       },

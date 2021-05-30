@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// Para traer el id del routing para
+// Para traer el id del routing
 // Importamos un injección de dependencia y un tipado
 // Toda injección de dependencia se inicializa en los parámetros del constructor
 import { ActivatedRoute, Params } from '@angular/router';
@@ -39,20 +39,20 @@ export class ProductDetailComponent implements OnInit {
     );
   }
 
-  createProduct() {
+  createProduct(): void {
     const newProduct: Product = {
       id: '222',
       title: 'nuevo desde angular',
       image: 'assets/images/pin.png',
       price: 100,
       description: 'nuevo desde angular'
-    }
+    };
     this.productService.createProduct(newProduct).subscribe(product => {
       console.log(product);
     });
   }
 
-  updateProduct() {
+  updateProduct(): void {
     const newProduct: Partial<Product> = {
       price: 200,
       description: 'actualizando descripcion'
@@ -62,7 +62,7 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
-  deleteProduct() {
+  deleteProduct(): void {
     this.productService.deleteProduct('222').subscribe(rtpa => {
       console.log(rtpa); // true = eliminado
     });

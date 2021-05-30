@@ -10,7 +10,7 @@ import { AdminGuard } from './shared/guards/admin/admin.guard';
 const routes: Routes = [
   {
     path: '', // Cuando no haya ninguna ruta
-    component: LayoutComponent, // Todos los componentes del children aplicarán este layour y cambiará dentro de su ruta cada children
+    component: LayoutComponent, // Todos los componentes del children aplicarán este layout y cambiará dentro de su ruta cada children
     // redirectTo: '/home', // utilizamos redirección
     // pathMatch: 'full', // Cuando solo tengamos la url en seco sin ningun path
     children: [ // Children con redirectTo no pueden trabajar juntos

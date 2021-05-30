@@ -23,7 +23,7 @@ export class DemoComponent implements OnInit {
 
   // Creamos un método para eliminar el arreglo
   removeItem(index: number): void {
-    this.items.splice( index, 1 );
+    this.items.splice(index, 1);
   }
 
 }

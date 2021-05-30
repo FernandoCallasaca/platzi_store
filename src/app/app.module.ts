@@ -19,8 +19,8 @@ registerLocaleData(localeEs);
 import { LayoutComponent } from './layout/layout.component';
 // Importamos las librerías
 import { SharedModule } from './shared/shared.module'; // el módulo de todos los compartidos
-import { CoreModule } from './core/core.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // el Core donde están nuestros servicios
+import { CoreModule } from './core/core.module'; // el Core donde están nuestros servicios
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   // En declaraciones, pipes, directivas colocamos el componente
