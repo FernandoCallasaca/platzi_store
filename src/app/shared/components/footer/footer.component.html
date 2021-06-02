@@ -1,27 +1,46 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <div class="row around-xs footer-row">
-      <div class="row middle-xs">
-        <mat-icon>store</mat-icon>
-        <span>Miraflore Tica Tica B-10</span>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <div class="box">
+          <h3>Productos</h3>
+          <ul>
+            <li>
+              <a routerLink="/products" [queryParams]="{ type: 'news' }"
+                >Nuevos Productos</a
+              >
+            </li>
+            <li>
+              <a routerLink="/products" [queryParams]="{ type: 'offer' }"
+                >En oferta</a
+              >
+            </li>
+            <li>
+              <a routerLink="/products" [queryParams]="{ type: 'latest' }"
+                >Últimos productos</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class=" row middle-xs">
-        <mat-icon>facebook</mat-icon>
-        <span>fernandocallasaca</span>
+      <div class="col-xs-12 col-md-4">
+        <div class="box">
+          <h3>Acerca de PlatziStore</h3>
+          <ul>
+            <li><a routerLink="/about-us">Sobre nosotros</a></li>
+            <li><a routerLink="/stores">Nuestras tiendas</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="row middle-xs">
-        <mat-icon>call</mat-icon>
-        <span>953942501</span>
-      </div>
-      <div class="row middle-xs">
-        <mat-icon>contact</mat-icon>
-        <mat-form-field>
-          <mat-label>Contacto</mat-label>
-          <input matInput type="text" [formControl]="emailField" placeholder="Ingrese su correo">
-        </mat-form-field>
-        <button mat-raised-button (click)="sendEmail()" [disabled]="emailField.invalid">Enviar</button>
-        <!-- <p *ngIf="emailField.invalid" >El campo no es válido</p> -->
+      <div class="col-xs-12 col-md-4">
+        <div class="box">
+          <h3>Contacto</h3>
+          <mat-form-field>
+            <input matInput placeholder="Digite su correo" [formControl]="emailField" type="email">
+          </mat-form-field>
+          <button mat-raised-button [disabled]="emailField.invalid" (click)="sendMail()">enviar</button>
+        </div>
       </div>
     </div>
-  </mat-toolbar-row>
-</mat-toolbar>
+  </div>
+</footer>

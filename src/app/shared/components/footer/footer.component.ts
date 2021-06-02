@@ -29,7 +29,7 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  sendEmail(): void {
+  sendMail(): void {
     if (this.emailField.valid) {
       console.log(this.emailField.value);
     }
