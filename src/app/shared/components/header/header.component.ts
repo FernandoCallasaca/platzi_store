@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+// Importamos el operador map
+// el map se utiliza para transformar
+// Y eso es lo que queremos hacer
+// Queremos transformar el valor que nos llega por uno nuevo
 import { map } from 'rxjs/operators';
 
 import { CartService } from './../../../core/services/cart/cart.service';
@@ -11,6 +15,8 @@ import { CartService } from './../../../core/services/cart/cart.service';
 })
 export class HeaderComponent implements OnInit {
 
+  // total$ será un observablo que su valor sea un número
+  // Eso hacemos para que en el template angular se suscriba automáticamente con async
   total$: Observable<number>;
 
   constructor(
@@ -24,9 +30,9 @@ export class HeaderComponent implements OnInit {
     // });
 
     this.total$ = this.cartService.cart$
-      .pipe(
-        map(products => products.length)
-      );
+    .pipe( // Agregamos la instrucción pipe
+      map(products => products.length) // agregamos el pipe map - obtendrá los productos y a qué lo queremos transformar
+    );
   }
 
   ngOnInit(): void {
