@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 // Porque el módulo ya está instalado en app.module.ts y ese hace que pudamos utilizar el Client
 import { HttpClient } from '@angular/common/http';
 
-import { Product } from './../../../product.model';
+import { Product } from './../../../core/models/product.model';
 // Importamos para tipar un Observable
 import { Observable } from 'rxjs';
 

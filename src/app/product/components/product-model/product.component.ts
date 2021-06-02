@@ -3,7 +3,7 @@
 import { Component,
   Input,
   Output, EventEmitter, SimpleChanges, OnDestroy, OnChanges, OnInit} from '@angular/core'; // Llamamos al decorador component y al input
-import { Product } from './../../../product.model';
+  import { Product } from './../../../core/models/product.model';
 
 import { CartService } from './../../../core/services/cart/cart.service';
 

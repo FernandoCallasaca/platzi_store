@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // Importamos un injección de dependencia y un tipado
 // Toda injección de dependencia se inicializa en los parámetros del constructor
 import { ActivatedRoute, Params } from '@angular/router';
-import { Product } from '../../../product.model';
+import { Product } from './../../../core/models/product.model';
 // Importamos el servicio -> todo servicio es una injección de dependencias
 import { ProductsService } from './../../../core/services/products/products.service';
 @Component({
