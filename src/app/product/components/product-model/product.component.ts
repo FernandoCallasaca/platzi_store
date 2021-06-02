@@ -5,6 +5,8 @@ import { Component,
   Output, EventEmitter, SimpleChanges, OnDestroy, OnChanges, OnInit} from '@angular/core'; // Llamamos al decorador component y al input
 import { Product } from './../../../product.model';
 
+import { CartService } from './../../../core/services/cart/cart.service';
+
 // Los decoradores se utilizan antes de definir la clase y se definen con un @
 // Los componentes tienen metadata
 @Component({
@@ -23,7 +25,9 @@ export class ProductComponent implements OnDestroy, OnChanges, OnInit {
 
   today = new Date();
 
-  constructor(){
+  constructor(
+    private cartService: CartService,
+  ){
     console.log('1. Constructor');
   }
 
@@ -52,5 +56,6 @@ export class ProductComponent implements OnDestroy, OnChanges, OnInit {
   addCart(): void {
     console.log('Añadir al carrito');
     this.productClicked.emit(this.product.id); // Emitimos un valor en este caso any
+    this.cartService.addCart(this.product);
   }
 }
