@@ -3,26 +3,40 @@
   <mat-step>
     <ng-template matStepLabel>Sus productos</ng-template>
 
-    <div *ngIf="(products$ | async) as products">
+    <div *ngIf="(products$ | async | groupby:'id') as products">
+
       <p *ngIf="products.length === 0">No hay productos</p>
-      <div class="row" *ngFor="let product of products">
-        <div class="col-xs-12 col-sm-2 col-md-2">
-          <div class="box">
-            <img class="image" [src]="product.image" alt="">
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-5 col-md-5">
-          <div class="box">
-            {{ product.title }}
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-5 col-md-5">
-          <div class="box">
-            {{ product.price }}
-          </div>
-        </div>
-      </div>
+
+      <table *ngIf="products.length !== 0" mat-table [dataSource]="products" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef> Imagen </th>
+          <td mat-cell *matCellDef="let element">
+            <img class="image" [src]="element.image" alt="">
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Título </th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Precio </th>
+          <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="count">
+          <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+          <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
     </div>
+
+
   </mat-step>
 
   <mat-step>

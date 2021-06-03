@@ -14,6 +14,7 @@ import { HighlightDirective } from './directives/highlight/highlight.directive';
 import { ExponentialPipe } from './pipes/exponential/exponential.pipe';
 
 import { MaterialModule } from './../material/material.module';
+import { GroupbyPipe } from './pipes/groupby/groupby.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MaterialModule } from './../material/material.module';
     HeaderComponent,
     HighlightDirective,
     ExponentialPipe,
+    GroupbyPipe,
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { MaterialModule } from './../material/material.module';
     HeaderComponent,
     FooterComponent,
     HighlightDirective,
-    ExponentialPipe
+    ExponentialPipe,
+    GroupbyPipe
   ]
 })
 export class SharedModule { }

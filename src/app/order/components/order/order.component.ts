@@ -10,6 +10,8 @@ import { CartService } from './../../../core/services/cart/cart.service';
 })
 export class OrderComponent implements OnInit {
 
+  displayedColumns: string[] = ['image', 'title', 'price', 'count'];
+
   products$: Observable<Product[]>;
 
   constructor(
