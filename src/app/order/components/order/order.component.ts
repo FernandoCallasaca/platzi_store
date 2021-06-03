@@ -10,7 +10,7 @@ import { CartService } from './../../../core/services/cart/cart.service';
 })
 export class OrderComponent implements OnInit {
 
-  displayedColumns: string[] = ['image', 'title', 'price', 'count'];
+  displayedColumns: string[] = ['image', 'title', 'price', 'count', 'actions'];
 
   products$: Observable<Product[]>;
 
@@ -22,6 +22,14 @@ export class OrderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  addProduct(product: Product): void {
+    this.cartService.addCart(product);
+  }
+
+  deleteProduct(product: Product): void {
+    this.cartService.deleteCart(product);
   }
 
 }

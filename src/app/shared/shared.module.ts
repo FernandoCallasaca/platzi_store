@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HighlightDirective } from './directives/highlight/highlight.directive';
 import { ExponentialPipe } from './pipes/exponential/exponential.pipe';
+import { CartComponent } from './components/cart/cart.component';
 
 import { MaterialModule } from './../material/material.module';
 import { GroupbyPipe } from './pipes/groupby/groupby.pipe';
@@ -23,6 +24,7 @@ import { GroupbyPipe } from './pipes/groupby/groupby.pipe';
     HighlightDirective,
     ExponentialPipe,
     GroupbyPipe,
+    CartComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { GroupbyPipe } from './pipes/groupby/groupby.pipe';
     FooterComponent,
     HighlightDirective,
     ExponentialPipe,
-    GroupbyPipe
+    GroupbyPipe,
+    CartComponent
   ]
 })
 export class SharedModule { }

@@ -1,6 +1,22 @@
 .image{
-  max-width: 100%;
+  max-width: 50%;
 }
 table {
   width: 100%;
+}
+
+.mat-column-image{
+  width: 20% !important;
+}
+.mat-column-title{
+  width: 30% !important;
+}
+.mat-column-price{
+  width: 15% !important;
+}
+.mat-column-count{
+  width: 10% !important;
+}
+.mat-column-actions{
+  width: 10% !important;
 }

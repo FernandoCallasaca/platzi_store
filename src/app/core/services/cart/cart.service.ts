@@ -32,4 +32,11 @@ export class CartService {
     // y le enviaría el array actual(la copia)
     this.cart.next(this.products);
   }
+
+  deleteCart(product: Product): void {
+    const indice = this.products.findIndex(p => p.id === product.id); // sacamos el indice
+    this.products.splice(indice, 1); // Con esto ya eliminamos
+    this.products = [...this.products]; // Con esto actualizamos la tabla
+    this.cart.next(this.products); // Notificamos que hubo un cambio y le enviamos el array actual
+  }
 }

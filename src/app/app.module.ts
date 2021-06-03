@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CartComponent } from './cart/cart.component';
 
 // Para colocar las fechas en el idioma español
 // 1.- Primero importamos LOCALE_ID del angular core
@@ -26,7 +25,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   // En declaraciones, pipes, directivas colocamos el componente
   declarations: [
     AppComponent,
-    CartComponent,
     LayoutComponent
   ],
   imports: [
