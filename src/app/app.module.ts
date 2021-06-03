@@ -21,6 +21,12 @@ import { SharedModule } from './shared/shared.module'; // el módulo de todos lo
 import { CoreModule } from './core/core.module'; // el Core donde están nuestros servicios
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Agregamos la configuración de firebase previamente copiando en los enviorements la conf de firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';  // Módulo authentication de firebase
+import { AngularFireStorageModule } from '@angular/fire/storage';  // Módulo storage de firebase
+import { environment } from '../environments/environment';
+
 @NgModule({
   // En declaraciones, pipes, directivas colocamos el componente
   declarations: [
@@ -35,7 +41,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SharedModule,
     CoreModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase), // Configuración de firebase
+    AngularFireAuthModule, // Módulo authentication de firebase
+    AngularFireStorageModule // Módulo storage de firebase
   ],
   // En este provider utilizamos el idioma local
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
