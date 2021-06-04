@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 // Para debuger usamos tap
 // tap genera una intersección en un flujo de datos y con esa intersección
@@ -16,6 +16,7 @@ export class AdminGuard implements CanActivate {
 
   constructor(
     private authService: AuthService,
+    private router: Router,
   ){}
 
   canActivate(
@@ -23,8 +24,13 @@ export class AdminGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.authService.hasuser().pipe(
       tap(user => console.log(user)), // aquí interceptamos con un tap para ver que nos trae
-      map(user => user === null ? false : true) // como debe retornar un boleano transformamos con map
+      map(user => user === null ? false : true), // como debe retornar un boleano transformamos con map
+      tap(hasuser => {
+        if (!hasuser) { // preguntamos si es falso ya que quiere quiere entrar pero no se ha logeado
+          // entonces lo redireccionamos a logearse
+          this.router.navigate(['/auth/login']); // tambien con tap podemos redireccionar
+        }
+      })
     );
   }
-
 }
