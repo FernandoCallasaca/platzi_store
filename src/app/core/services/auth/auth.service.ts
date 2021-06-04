@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth'; // Traemos importaciones nativas de firebase
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,9 @@ export class AuthService {
 
   logout(): Promise<any> {
     return this.afa.signOut();
+  }
+
+  hasuser(): Observable<any> {
+    return this.afa.authState;
   }
 }

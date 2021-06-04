@@ -28,7 +28,6 @@ const routes: Routes = [
       {
         path: 'products',
         // component: ProductsComponent,
-        canActivate: [AdminGuard], // le enviamos un guardión dentro del arreglo
         loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
       },
       // {
@@ -37,7 +36,6 @@ const routes: Routes = [
       // },
       {
         path: 'contact',
-        canActivate: [AdminGuard], // le enviamos un guardión dentro del arreglo
         loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule),
       },
       {
@@ -53,6 +51,7 @@ const routes: Routes = [
   // Creamos el admin
   {
     path: 'admin',
+    canActivate: [AdminGuard], // le enviamos un guardión dentro del arreglo
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
   {
