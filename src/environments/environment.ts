@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   urlApi: 'http://platzi-store.herokuapp.com',
   // https://github.com/angular/angularfire/tree/v5 <- link
+  // Instalamos "npm install firebase @angular/fire --save"
   firebase: {
     apiKey: 'AIzaSyDZLI5gnkon7doRp-DqDmCFPvL_-NnmYAY',
     authDomain: 'platzi-store-95d0e.firebaseapp.com',
