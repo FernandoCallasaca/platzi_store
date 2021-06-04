@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ProductsService } from './services/products/products.service';
 import { CartService } from './services/cart/cart.service';
+import { AuthService } from './services/auth/auth.service';
 
 @NgModule({
   declarations: [],
@@ -13,7 +14,8 @@ import { CartService } from './services/cart/cart.service';
   // y quedará en el core son una sola referencia sin tener que importarlo para siempre
   providers: [
     ProductsService,
-    CartService
+    CartService,
+    AuthService
   ]
 })
 export class CoreModule { }
