@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlApi: 'http://platzi-store.herokuapp.com',
+  urlApi: 'https://platzi-store.herokuapp.com',
   // https://github.com/angular/angularfire/tree/v5 <- link
   // Instalamos "npm install firebase @angular/fire --save"
   firebase: {
