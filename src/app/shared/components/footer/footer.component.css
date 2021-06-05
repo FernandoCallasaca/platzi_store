@@ -7,6 +7,8 @@ footer {
 
 .box h3 {
   color: white;
+  text-decoration-line: underline;
+  text-decoration-style: double;
 }
 
 ul {

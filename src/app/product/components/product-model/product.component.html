@@ -13,7 +13,7 @@
   <mat-card-content>
     <p>{{ product.description | slice:0:10 }}</p>
   </mat-card-content>
-  <mat-card-actions>
+  <mat-card-actions style="align-items: center; justify-content: center; display: flex;">
     <button mat-raised-button color="primary" (click)="addCart()">Agregar al carrito</button>
     <a mat-raised-button [routerLink]="['/products', product.id]">Ver el producto</a>
   </mat-card-actions>
