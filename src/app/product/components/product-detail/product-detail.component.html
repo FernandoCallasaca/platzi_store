@@ -3,24 +3,23 @@
 <mat-card *ngIf="product">
   <mat-card-header>
     <mat-card-title>
-      {{product.title}}
+      {{product.title | uppercase}}
     </mat-card-title>
   </mat-card-header>
-  <div>
-    <img style="max-width: 100%;" [src]="product.image" alt="">
+  <div class="image">
+    <img style="max-width: 50%;" [src]="product.image" alt="">
   </div>
   <mat-card-content>
     <div>
-      <ul>
-        <li>Precio: {{product.price | currency: ' nuevos soles'}}</li>
-      </ul>
-      <p>{{product.description}}</p>
+      <p><strong>Precio: </strong>{{product.price | currency: ' nuevos soles'}}</p>
+      <p><strong>Descripción: </strong> {{product.description}}</p>
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <button (click)="createProduct()">Crear</button>
+    <button mat-raised-button color="accent" (click)="addCart()">Agregar al carrito</button>
+    <!-- <button (click)="createProduct()">Crear</button>
     <button (click)="updateProduct()">Actualizar</button>
-    <button (click)="deleteProduct()">Eliminar</button>
+    <button (click)="deleteProduct()">Eliminar</button> -->
   </mat-card-actions>
 </mat-card>
 

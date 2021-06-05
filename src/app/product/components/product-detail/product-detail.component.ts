@@ -6,6 +6,9 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Product } from './../../../core/models/product.model';
 // Importamos el servicio -> todo servicio es una injección de dependencias
 import { ProductsService } from './../../../core/services/products/products.service';
+
+// Traemos el servicio cartService
+import { CartService } from './../../../core/services/cart/cart.service';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -18,6 +21,7 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductsService,
+    private cartService: CartService,
   ) { }
 
   // La manera adecuada de recibir datos = ngOnInit
@@ -37,6 +41,12 @@ export class ProductDetailComponent implements OnInit {
         this.product = product;
       }
     );
+  }
+
+  addCart(): void {
+    if (this.product) {
+      this.cartService.addCart(this.product);
+    }
   }
 
   createProduct(): void {
