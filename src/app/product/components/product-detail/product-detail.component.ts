@@ -3,12 +3,12 @@ import { Component, OnInit } from '@angular/core';
 // Importamos un injección de dependencia y un tipado
 // Toda injección de dependencia se inicializa en los parámetros del constructor
 import { ActivatedRoute, Params } from '@angular/router';
-import { Product } from './../../../core/models/product.model';
+import { Product } from '@core/models/product.model'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 // Importamos el servicio -> todo servicio es una injección de dependencias
-import { ProductsService } from './../../../core/services/products/products.service';
+import { ProductsService } from '@core/services/products/products.service';
 
 // Traemos el servicio cartService
-import { CartService } from './../../../core/services/cart/cart.service';
+import { CartService } from '@core/services/cart/cart.service'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',

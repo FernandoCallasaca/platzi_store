@@ -15,7 +15,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    // Agregamos este path y nos guiamos del baseUrl para realizar una simplificación y quitar "./../../"
+    "paths": {
+      "@core/*" : ["src/app/core/*"],
+      "@material/*" : ["src/app/material/*"],
+      "@shared/*" : ["src/app/shared/*"],
+      "@admin/*" : ["src/app/admin/*"],
+      "@utils/*" : ["src/app/utils/*"],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

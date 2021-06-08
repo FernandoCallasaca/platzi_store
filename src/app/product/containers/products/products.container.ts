@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 // Importamos nuestra interface
-import { Product } from './../../../core/models/product.model';
-import { ProductsService } from './../../../core/services/products/products.service';
+import { Product } from '@core/models/product.model'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
+import { ProductsService } from '@core/services/products/products.service';
+// Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 @Component({
   selector: 'app-products',
   templateUrl: './products.container.html',

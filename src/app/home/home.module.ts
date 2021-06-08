@@ -10,7 +10,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { BannerComponent } from './components/banner/banner.component';
 
-import { SharedModule } from './../shared/shared.module';
+import { SharedModule } from '@shared/shared.module'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 @NgModule({
   // Los componentes que tendrán estos módulos
   declarations: [

@@ -17,8 +17,9 @@ registerLocaleData(localeEs);
 
 import { LayoutComponent } from './layout/layout.component';
 // Importamos las librerías
-import { SharedModule } from './shared/shared.module'; // el módulo de todos los compartidos
-import { CoreModule } from './core/core.module'; // el Core donde están nuestros servicios
+import { SharedModule } from '@shared/shared.module'; // el módulo de todos los compartidos
+// Cambiamos el path en tsconfig.json "paths" por eso llamamos así
+import { CoreModule } from '@core/core.module'; // el Core donde están nuestros servicios
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Agregamos la configuración de firebase previamente copiando en los enviorements la conf de firebase

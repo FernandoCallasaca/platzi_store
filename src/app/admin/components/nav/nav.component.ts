@@ -3,7 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
-import { AuthService } from './../../../core/services/auth/auth.service';
+import { AuthService } from '@core/services/auth/auth.service'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-nav',

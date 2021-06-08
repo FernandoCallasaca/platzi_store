@@ -6,8 +6,8 @@ import { ProductsContainer } from './containers/products/products.container';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 import { ProductRoutingModule } from './product-routing.module';
-import { SharedModule } from './../shared/shared.module';
-import { MaterialModule } from './../material/material.module';
+import { SharedModule } from '@shared/shared.module'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
+import { MaterialModule } from '@material/material.module'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 @NgModule({
   declarations: [
     ProductComponent,

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 // La librería que añade principios reactivos a nuestra aplicación de angular es rxjs
 import { BehaviorSubject } from 'rxjs';
 
-import { Product } from './../../../core/models/product.model';
+import { Product } from '@core/models/product.model'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 
 @Injectable({
   providedIn: 'root'

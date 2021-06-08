@@ -3,9 +3,9 @@
 import { Component,
   Input,
   Output, EventEmitter, SimpleChanges, OnDestroy, OnChanges, OnInit} from '@angular/core'; // Llamamos al decorador component y al input
-import { Product } from './../../../core/models/product.model';
+import { Product } from '@core/models/product.model'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 
-import { CartService } from './../../../core/services/cart/cart.service';
+import { CartService } from '@core/services/cart/cart.service'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 
 // Los decoradores se utilizan antes de definir la clase y se definen con un @
 // Los componentes tienen metadata

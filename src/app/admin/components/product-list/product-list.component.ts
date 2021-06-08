@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from './../../../core/services/products/products.service';
-import { Product } from './../../../core/models/product.model';
+import { ProductsService } from '@core/services/products/products.service';
+import { Product } from '@core/models/product.model'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 
 @Component({
   selector: 'app-product-list',

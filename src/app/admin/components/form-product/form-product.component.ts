@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 // FormGroup = grupo de controler, muchos controles
 // Validators para empezar a poner las validaciones a cada FormControl dentro del FormBuilder
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProductsService } from './../../../core/services/products/products.service';
+// Cambiamos el path en tsconfig.json "paths" por eso llamamos así
+import { ProductsService } from '@core/services/products/products.service';
 // Importamos para redireccionar y este es una injección de dependencia
 import { Router } from '@angular/router';
 // Importamos a nuestro validators creado personalizado
-import { MyValidators } from './../../../utils/validators';
+import { MyValidators } from '@utils/validators'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 
 // Importamos un módulo que permite subir archivos luego de implementar ya su modulo AngularFireStorageModulo
 // en el "app.modute.ts" luego de instalar firebase de angular

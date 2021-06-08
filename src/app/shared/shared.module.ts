@@ -14,7 +14,7 @@ import { HighlightDirective } from './directives/highlight/highlight.directive';
 import { ExponentialPipe } from './pipes/exponential/exponential.pipe';
 import { CartComponent } from './components/cart/cart.component';
 
-import { MaterialModule } from './../material/material.module';
+import { MaterialModule } from '@material/material.module'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 import { GroupbyPipe } from './pipes/groupby/groupby.pipe';
 
 @NgModule({

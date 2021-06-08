@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 // map si transforma
 import { map, tap } from 'rxjs/operators';
 
-import { AuthService } from './../../../core/services/auth/auth.service';
+import { AuthService } from '@core/services/auth/auth.service'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 @Injectable({
   providedIn: 'root'
 })

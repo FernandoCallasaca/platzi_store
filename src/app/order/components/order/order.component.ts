@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Product } from './../../../core/models/product.model';
-import { CartService } from './../../../core/services/cart/cart.service';
+import { Product } from '@core/models/product.model'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
+import { CartService } from '@core/services/cart/cart.service';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',

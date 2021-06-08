@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ProductsService } from 'src/app/core/services/products/products.service';
-import { Product } from './../../../core/models/product.model';
-import { MyValidators } from 'src/app/utils/validators';
+import { Product } from '@core/models/product.model'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
+import { MyValidators } from '@utils/validators'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 
 @Component({
   selector: 'app-product-edit',

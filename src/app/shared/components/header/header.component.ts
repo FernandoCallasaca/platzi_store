@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 // Queremos transformar el valor que nos llega por uno nuevo
 import { map } from 'rxjs/operators';
 
-import { CartService } from './../../../core/services/cart/cart.service';
+import { CartService } from '@core/services/cart/cart.service'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 
 @Component({
   selector: 'app-header',
