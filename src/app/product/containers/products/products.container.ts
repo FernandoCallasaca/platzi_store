@@ -4,10 +4,11 @@ import { Product } from './../../../core/models/product.model';
 import { ProductsService } from './../../../core/services/products/products.service';
 @Component({
   selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  templateUrl: './products.container.html',
+  styleUrls: ['./products.container.css']
 })
-export class ProductsComponent implements OnInit {
+// tslint:disable-next-line:component-class-suffix
+export class ProductsContainer implements OnInit {
 
   constructor(
     private productService: ProductsService,
