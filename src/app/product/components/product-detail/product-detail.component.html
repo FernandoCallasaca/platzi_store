@@ -1,6 +1,6 @@
 <!-- Cuando hagamos un restapi demora y algunos componentes quieren escribir y no existe -->
 <!-- Por eso hasta esperar hacemos un ngIf -->
-<mat-card *ngIf="product">
+<mat-card *ngIf="(product$ | async) as product">
   <mat-card-header>
     <mat-card-title>
       {{product.title | uppercase}}
@@ -16,7 +16,7 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="accent" (click)="addCart()">Agregar al carrito</button>
+    <button mat-raised-button color="accent" (click)="addCart(product)">Agregar al carrito</button>
     <!-- <button (click)="createProduct()">Crear</button>
     <button (click)="updateProduct()">Actualizar</button>
     <button (click)="deleteProduct()">Eliminar</button> -->
