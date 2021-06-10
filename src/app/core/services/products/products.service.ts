@@ -9,6 +9,13 @@ import { Observable } from 'rxjs';
 
 import { environment } from './../../../../environments/environment';
 
+import { map } from 'rxjs/operators';
+
+interface Users {
+  email: string;
+  gender: string;
+  phone: string;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -48,4 +55,13 @@ export class ProductsService {
   deleteProduct(id: string): Observable<any> {
     return this.http.delete(`${environment.urlApi}/products/${id}`);
   }
+
+  // Ejemplo de tipado con interface
+  getRandomUsers(): Observable<Users[]> {
+    return this.http.get('https://randomuser.me/api/?results=2')
+    .pipe(
+      map((response: any) => response.results as Users[])
+    );
+  }
+
 }

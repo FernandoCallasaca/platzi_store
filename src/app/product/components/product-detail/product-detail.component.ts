@@ -38,6 +38,7 @@ export class ProductDetailComponent implements OnInit {
 
   // La manera adecuada de recibir datos = ngOnInit
   ngOnInit(): void {
+    this.getRandomUsers();
     this.product$ = this.route.params
     .pipe(
       // De esta manera evitamos hacer un doble suscribe
@@ -101,6 +102,13 @@ export class ProductDetailComponent implements OnInit {
   deleteProduct(): void {
     this.productService.deleteProduct('222').subscribe(rtpa => {
       console.log(rtpa); // true = eliminado
+    });
+  }
+
+  getRandomUsers(): void {
+    this.productService.getRandomUsers()
+    .subscribe(users => {
+      console.log(users);
     });
   }
 }
