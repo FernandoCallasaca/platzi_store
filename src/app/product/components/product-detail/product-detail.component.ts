@@ -18,6 +18,9 @@ import { CartService } from '@core/services/cart/cart.service'; // Cambiamos el 
 // operators = manipular cualquier flujo de datos dentro del observable
 import { switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+
+// Importamos esta librería luego de instalar "npm i file-saver --save"
+import * as FileSaver from 'file-saver';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -115,5 +118,15 @@ export class ProductDetailComponent implements OnInit {
       //   console.error(error); // este error ya fue personalizado en el servicio
       // }
     );
+  }
+
+  getFile(): void {
+    this.productService.getFile()
+    .subscribe(content => {
+      console.log(content); // imprimimos el contenido
+      // Procedemos a descargar
+      const blob = new Blob([content], {type: 'text/plain; charset=utf-8'});
+      FileSaver.saveAs(blob, 'test.txt');
+    });
   }
 }

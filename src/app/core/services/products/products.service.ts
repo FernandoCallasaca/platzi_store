@@ -89,6 +89,13 @@ export class ProductsService {
     );
   }
 
+  // Ejemplo para traer un file
+  getFile(): Observable<any> {
+    // Le decimos que el responseType es un texto
+    // Si sería un pdf también le pondría el type indicado
+    return this.http.get('assets/files/test.txt', { responseType: 'text' });
+  }
+
   private handleError(error: HttpErrorResponse): Observable<any> {
     // Aquí manipulamos el error if, etc
     console.log(error); // imprimimos el error nativo que venga
