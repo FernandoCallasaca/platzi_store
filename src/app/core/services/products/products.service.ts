@@ -13,7 +13,8 @@ import { Observable, throwError } from 'rxjs';
 import { environment } from './../../../../environments/environment';
 
 // Para atrapar errores importamos catchError de los operators
-import { map, catchError } from 'rxjs/operators';
+// para intentar a hacer la petición importamos retry
+import { map, catchError, retry } from 'rxjs/operators';
 
 interface Users {
   email: string;
@@ -77,8 +78,10 @@ export class ProductsService {
 
   // Ejemplo de tipado con interface
   getRandomUsers(): Observable<Users[]> {
-    return this.http.get('https://randomuser.m/api/?results=2')
+    return this.http.get('https://randomuser.me/api/?results=2')
     .pipe(
+      retry(3), // antes de dar error que intente n veces
+      // si no contesta con esas n veces de intentos ya sale error
       // el catch se recibe antes de procesar "siempre"
       // si no hay error no pasará por esa función
       catchError(this.handleError),
