@@ -107,8 +107,13 @@ export class ProductDetailComponent implements OnInit {
 
   getRandomUsers(): void {
     this.productService.getRandomUsers()
-    .subscribe(users => {
-      console.log(users);
-    });
+    .subscribe(
+      users => {
+        console.log(users);
+      },
+      // error => {
+      //   console.error(error); // este error ya fue personalizado en el servicio
+      // }
+    );
   }
 }

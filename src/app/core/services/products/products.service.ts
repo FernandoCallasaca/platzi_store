@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 // Aquí solo traemos el Client y no traemos el módulo "HttpClientModulo"
 // Porque el módulo ya está instalado en app.module.ts y ese hace que pudamos utilizar el Client
-import { HttpClient } from '@angular/common/http';
+// -- HttpErrorResponse para tipar el error http
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { Product } from '@core/models/product.model'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 // Importamos para tipar un Observable
-import { Observable } from 'rxjs';
+
+// También importamos throwError para generar un observable de tipo error
+import { Observable, throwError } from 'rxjs';
 
 import { environment } from './../../../../environments/environment';
 
-import { map } from 'rxjs/operators';
+// Para atrapar errores importamos catchError de los operators
+import { map, catchError } from 'rxjs/operators';
 
 interface Users {
   email: string;
@@ -30,7 +34,10 @@ export class ProductsService {
   getAllProducts(): Observable<Product[]> {
     // return this.http.get('http://platzi-store.herokuapp.com/products');
     // return this.http.get<Product[]>('http://platzi-store.herokuapp.com/products');
-    return this.http.get<Product[]>(`${environment.urlApi}/products`);
+    return this.http.get<Product[]>(`${environment.urlApi}/products`)
+    .pipe(
+      catchError(this.handleError),
+    );
   }
 
   // Método para retornar un solo producto
@@ -38,30 +45,51 @@ export class ProductsService {
     // return this.products.find(item => id === item.id);
     // return this.http.get(`http://platzi-store.herokuapp.com/products/${id}`);
     // return this.http.get<Product>(`http://platzi-store.herokuapp.com/products/${id}`);
-    return this.http.get<Product>(`${environment.urlApi}/products/${id}`);
+    return this.http.get<Product>(`${environment.urlApi}/products/${id}`)
+    .pipe(
+      catchError(this.handleError),
+    );
   }
 
   // Metodo para crear un producto
   createProduct(product: Product): Observable<any> {
-    return this.http.post(`${environment.urlApi}/products`, product);
+    return this.http.post(`${environment.urlApi}/products`, product)
+    .pipe(
+      catchError(this.handleError),
+    );
   }
 
   // Editamos un productos
   updateProduct(id: string, changes: Partial<Product>): Observable<any> {
-    return this.http.put(`${environment.urlApi}/products/${id}`, changes);
+    return this.http.put(`${environment.urlApi}/products/${id}`, changes)
+    .pipe(
+      catchError(this.handleError),
+    );
   }
 
   // Eliminamos un productos
   deleteProduct(id: string): Observable<any> {
-    return this.http.delete(`${environment.urlApi}/products/${id}`);
+    return this.http.delete(`${environment.urlApi}/products/${id}`)
+    .pipe(
+      catchError(this.handleError),
+    );
   }
 
   // Ejemplo de tipado con interface
   getRandomUsers(): Observable<Users[]> {
-    return this.http.get('https://randomuser.me/api/?results=2')
+    return this.http.get('https://randomuser.m/api/?results=2')
     .pipe(
+      // el catch se recibe antes de procesar "siempre"
+      // si no hay error no pasará por esa función
+      catchError(this.handleError),
       map((response: any) => response.results as Users[])
     );
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<any> {
+    // Aquí manipulamos el error if, etc
+    console.log(error); // imprimimos el error nativo que venga
+    return throwError('Ups algo salió mal'); // retornamos un observablo con el error tratado personalizado
   }
 
 }
