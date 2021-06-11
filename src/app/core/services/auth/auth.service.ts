@@ -52,6 +52,9 @@ export class AuthService {
         const token = data.token;
         // el token obtenido lo guardamos el localStorage mediante el servicio
         // para pedirlo en cualquier momento
+
+        // recordemos que la lógica debemos hacerlo en el servicio
+        // el componente solo debe renderizar
         this.token.saveToken(token);
       })
     );

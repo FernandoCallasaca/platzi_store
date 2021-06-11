@@ -2,10 +2,10 @@
 // también recordar que modificamos el "app.module.ts"
 
 import { Injectable } from '@angular/core';
-// Nos traemos "HttpInterceptor" y lo implementamos
+// Nos traemos "HttpInterceptor" y lo implementamos(implements interceptor)
 // HttpRequest: tipo para lo que vamos a interceptar y no importa mucho la data <any>
 // HttpHandler: el tipado para hacer luego de interceptarlo
-// HttpEvent: tipo del Observablo ded respuesta <any>
+// HttpEvent: tipo del Observablo de respuesta <any>
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -26,7 +26,7 @@ export class AuthInterceptor implements HttpInterceptor { // cambiamos el nombre
     private token: TokenService,
   ) { }
 
-  // Este método nos obliga a implementarlo porque implementamos "HttpInterceptor"
+  // (implements HttpInterceptor) - Este método nos obliga a implementarlo porque implementamos "HttpInterceptor"
   // Y esto tiene una lógica
   // request: lo que vamos a interceptar
   // next: una vez interceptado con esto le decimos que continue
@@ -49,7 +49,7 @@ export class AuthInterceptor implements HttpInterceptor { // cambiamos el nombre
     // si hay token entonces lo agregamos al request
     if (token) {
       // si es que hay token entonces modificamos el request
-      // primero clonamos por que ya tiene todos sus atributos(url, path, body, etc) y solo agregamos
+      // primero clonamos porque ya tiene todos sus atributos(url, path, body, etc) y solo agregamos
       request = request.clone({
         // seteamos los Headers y le enviamos el token
         setHeaders: {

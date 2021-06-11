@@ -33,6 +33,7 @@ import { environment } from '../environments/environment';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 // Importamos nuestro interceptor para colocarlo en el useClass de provide
 import { AuthInterceptor } from '@core/services/interceptors/auth/auth.interceptor';
+
 @NgModule({
   // En declaraciones, pipes, directivas colocamos el componente
   declarations: [
@@ -52,13 +53,13 @@ import { AuthInterceptor } from '@core/services/interceptors/auth/auth.intercept
     AngularFireAuthModule, // Módulo authentication de firebase
     AngularFireStorageModule // Módulo storage de firebase
   ],
-  // En este provider utilizamos el idioma local
   providers: [
+    // En este provider utilizamos el idioma local
     {
       provide: LOCALE_ID,
       useValue: 'es'
     },
-    // Creamos un nuevo provide
+    // Creamos un nuevo provide para nuestro interceptor
     {
       provide: HTTP_INTERCEPTORS, // provide por defecto de angular
       useClass: AuthInterceptor, // esa clase utilizamos(nuestro interceptor creado)
