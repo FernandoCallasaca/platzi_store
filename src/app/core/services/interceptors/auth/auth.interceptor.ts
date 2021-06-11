@@ -9,6 +9,9 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+// Para saber si hay un token traemos el servicio que tiene el token
+import { TokenService } from './../../token/token.service';
+
 // @Injectable({
 //   providedIn: 'root' // Esto hace que todos los que tengan la banderita "root" esten injectados en el scope global
 // })
@@ -19,7 +22,9 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor { // cambiamos el nombre de la clase
 
-  constructor() { }
+  constructor(
+    private token: TokenService,
+  ) { }
 
   // Este método nos obliga a implementarlo porque implementamos "HttpInterceptor"
   // Y esto tiene una lógica
@@ -37,7 +42,10 @@ export class AuthInterceptor implements HttpInterceptor { // cambiamos el nombre
 
   private addToken(request: HttpRequest<any>): any {
     // aquí sería el token que obtenemos al momento de logearnos
-    const token = '123';
+    // lo que el proceso de authentication nos generó
+    // const token = '123';
+    const token = this.token.getToken();
+    console.log(token);
     // si hay token entonces lo agregamos al request
     if (token) {
       // si es que hay token entonces modificamos el request
@@ -59,6 +67,8 @@ export class AuthInterceptor implements HttpInterceptor { // cambiamos el nombre
     }
     // Si no hay token entonces no agregamos nada, solo devolvemos el mismo request
     // pero podríamos decirle literalmente que no hay token y tienes que ponerlo o que genera un error, etc
+
+    // aquí podriamos decirle que si no hay token que no pueda hacer la petición
     return request;
   }
 }

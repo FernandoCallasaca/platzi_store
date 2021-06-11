@@ -3,6 +3,12 @@ import { AngularFireAuth } from '@angular/fire/auth'; // Traemos importaciones n
 import { Observable } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
+
+// Aquí tenemos el ejemplo de que un servicio utilice otro serivicio
+// importamos el servicio de token
+import { TokenService } from './../token/token.service';
+// tap no facilita ejecutar una tarea antes de devolverla como tal al componente
+import { tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +16,8 @@ export class AuthService {
 
   constructor(
     private afa: AngularFireAuth, // angular firebase authentication = afa
-    private http: HttpClient
+    private http: HttpClient,
+    private token: TokenService,
   ) { }
 
   createUser(email: string, password: string): Promise<any> {
@@ -38,6 +45,15 @@ export class AuthService {
       // Es buena práctica enviar estos datos sensibles también encriptados
       email,
       password
-    });
+    }) // este nos devuelve el token
+    .pipe(
+      // intercetamos el resultado
+      tap((data: {token: string}) => {
+        const token = data.token;
+        // el token obtenido lo guardamos el localStorage mediante el servicio
+        // para pedirlo en cualquier momento
+        this.token.saveToken(token);
+      })
+    );
   }
 }
