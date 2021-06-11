@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-// Aquí solo traemos el Client y no traemos el módulo "HttpClientModulo"
-// Porque el módulo ya está instalado en app.module.ts y ese hace que pudamos utilizar el Client
+// Aquí solo traemos el Client y no traemos el módulo "HttpClientModule"
+// Porque el módulo ya está instanciado en app.module.ts y ese hace que pudamos utilizar el Client
 // -- HttpErrorResponse para tipar el error http
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
@@ -37,6 +37,7 @@ export class ProductsService {
     // return this.http.get<Product[]>('http://platzi-store.herokuapp.com/products');
     return this.http.get<Product[]>(`${environment.urlApi}/products`)
     .pipe(
+      retry(3),
       catchError(this.handleError),
     );
   }
@@ -48,6 +49,7 @@ export class ProductsService {
     // return this.http.get<Product>(`http://platzi-store.herokuapp.com/products/${id}`);
     return this.http.get<Product>(`${environment.urlApi}/products/${id}`)
     .pipe(
+      retry(3),
       catchError(this.handleError),
     );
   }
@@ -56,6 +58,7 @@ export class ProductsService {
   createProduct(product: Product): Observable<any> {
     return this.http.post(`${environment.urlApi}/products`, product)
     .pipe(
+      retry(3),
       catchError(this.handleError),
     );
   }
@@ -64,6 +67,7 @@ export class ProductsService {
   updateProduct(id: string, changes: Partial<Product>): Observable<any> {
     return this.http.put(`${environment.urlApi}/products/${id}`, changes)
     .pipe(
+      retry(3),
       catchError(this.handleError),
     );
   }
@@ -72,6 +76,7 @@ export class ProductsService {
   deleteProduct(id: string): Observable<any> {
     return this.http.delete(`${environment.urlApi}/products/${id}`)
     .pipe(
+      retry(3),
       catchError(this.handleError),
     );
   }
@@ -93,7 +98,11 @@ export class ProductsService {
   getFile(): Observable<any> {
     // Le decimos que el responseType es un texto
     // Si sería un pdf también le pondría el type indicado
-    return this.http.get('assets/files/test.txt', { responseType: 'text' });
+    return this.http.get('assets/files/test.txt', { responseType: 'text' })
+    .pipe(
+      retry(3),
+      catchError(this.handleError)
+    );
   }
 
   private handleError(error: HttpErrorResponse): Observable<any> {
