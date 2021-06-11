@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth'; // Traemos importaciones nativas de firebase
 import { Observable } from 'rxjs';
 
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,12 +10,14 @@ export class AuthService {
 
   constructor(
     private afa: AngularFireAuth, // angular firebase authentication = afa
+    private http: HttpClient
   ) { }
 
   createUser(email: string, password: string): Promise<any> {
     return this.afa.createUserWithEmailAndPassword(email, password);
   }
 
+  // Este se comunica con firebase
   login(email: string, password: string): Promise<any> {
     return this.afa.signInWithEmailAndPassword(email, password);
   }
@@ -25,5 +28,16 @@ export class AuthService {
 
   hasuser(): Observable<any> {
     return this.afa.authState;
+  }
+
+  // Este se comunicará con nuestro endpoint de autenticación
+  loginRestApi(email: string, password: string): Observable<any> {
+    // Por lo general cualquier tipo de autenticación va por "post"
+    return this.http.post('https://platzi-store.herokuapp.com/auth', {
+      // De por sí cuando tenemos una conexión https los datos ya viajan encriptados
+      // Es buena práctica enviar estos datos sensibles también encriptados
+      email,
+      password
+    });
   }
 }

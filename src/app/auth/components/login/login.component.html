@@ -21,6 +21,8 @@
     </mat-card-content>
     <mat-card-actions>
       <button [disabled]="form.invalid" mat-raised-button type="submit">Ingresar</button>
+      <!-- Para no tener problemas con el submit este botón solo es un type button -->
+      <button mat-raised-button type="button" (click)="loginRestApi()">Login Api</button>
     </mat-card-actions>
   </mat-card>
 

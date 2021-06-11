@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Este login se realiza con firebase
   login(event: Event): void {
     event.preventDefault();
     if (this.form.valid) {
@@ -37,6 +38,14 @@ export class LoginComponent implements OnInit {
         alert('No es válido');
       });
     }
+  }
+
+  // Este login con rest api
+  loginRestApi(): void {
+    this.authService.loginRestApi('nicolas@nicola.com', '123456')
+    .subscribe(data => {
+      console.log(data);
+    });
   }
 
   private buildForm(): void {
