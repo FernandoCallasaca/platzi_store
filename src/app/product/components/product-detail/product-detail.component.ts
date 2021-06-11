@@ -11,14 +11,15 @@ import { ProductsService } from '@core/services/products/products.service';
 import { CartService } from '@core/services/cart/cart.service'; // Cambiamos el path en tsconfig.json "paths" por eso llamamos así
 
 // Para no tener varios suscribes anidados y no se haga un callback hell
-// usaremos swichmap y para eso lo tenemos que importar de los observables de rxjs
+// usaremos swichmap y para eso lo tenemos que importar de los operators de rxjs
 // Lo que hace es que tengo un flujo de datos o tengo un observable inicial y este
-// lo remplazo por otro despues de que reciba un valor o sea manejo un flujo de datos en uno solo
-// para manerjarlo en forma lineal o transformar los datos en forma lineal
-// operators = manipular cualquier flujo de datos dentro del observable
+// lo remplazo por otro despues de que reciba un valor, o sea manejo un flujo de datos en uno solo
+// para manejarlo en forma lineal o transformar los datos en forma lineal
+// operators = manipulan cualquier flujo de datos dentro del observable
 import { switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
+// Para poder descargar un archivo usamos la librería file-saver
 // Importamos esta librería luego de instalar "npm i file-saver --save"
 import * as FileSaver from 'file-saver';
 @Component({
@@ -125,8 +126,9 @@ export class ProductDetailComponent implements OnInit {
     .subscribe(content => {
       console.log(content); // imprimimos el contenido
       // Procedemos a descargar
-      const blob = new Blob([content], {type: 'text/plain; charset=utf-8'});
-      FileSaver.saveAs(blob, 'test.txt');
+      const File = new Blob([content], { type: 'text/plain; charset=utf-8' });
+      const nameFile = 'test.txt';
+      FileSaver.saveAs(File, nameFile);
     });
   }
 }
