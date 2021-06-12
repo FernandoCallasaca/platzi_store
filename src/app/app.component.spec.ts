@@ -1,7 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
-describe('AppComponent', () => {
+// "describe" <- sentencia original
+// este archivo sirve para hacer pruebas unitarias
+// el que uso por defecto angular es Karma con Jasmine
+// en Jasmine si colocamos "xdescribe" decimos que esa prueba unitaria sea escaparlas/ignorada
+xdescribe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
