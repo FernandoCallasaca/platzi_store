@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 // Aquí tenemos el ejemplo de que un servicio utilice otro serivicio
 // importamos el servicio de token
 import { TokenService } from './../token/token.service';
-// tap no facilita ejecutar una tarea antes de devolverla como tal al componente
+// tap nos facilita ejecutar una tarea antes de devolverla como tal al componente
 import { tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
@@ -50,7 +50,7 @@ export class AuthService {
       // intercetamos el resultado
       tap((data: {token: string}) => {
         const token = data.token;
-        // el token obtenido lo guardamos el localStorage mediante el servicio
+        // el token obtenido lo guardamos en el localStorage mediante el servicio
         // para pedirlo en cualquier momento
 
         // recordemos que la lógica debemos hacerlo en el servicio

@@ -28,7 +28,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';  // Módulo authenti
 import { AngularFireStorageModule } from '@angular/fire/storage';  // Módulo storage de firebase
 import { environment } from '../environments/environment';
 
-// Agregaremos nuestro interceptor para todos las consultas
+// Agregaremos nuestro interceptor para todos las consultas o peticiones
 // HTTP_INTERCEPTORS: variable constante que ellos tienen para interceptores
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 // Importamos nuestro interceptor para colocarlo en el useClass de provide
@@ -63,7 +63,7 @@ import { AuthInterceptor } from '@core/services/interceptors/auth/auth.intercept
     {
       provide: HTTP_INTERCEPTORS, // provide por defecto de angular
       useClass: AuthInterceptor, // esa clase utilizamos(nuestro interceptor creado)
-      multi: true // a cualquier petición que aplique este interceptor
+      multi: true // con "true" le decimos que a cualquier petición se aplique nuestro interceptor
     }
   ],
   bootstrap: [AppComponent]
