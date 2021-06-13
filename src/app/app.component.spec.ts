@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 // este archivo sirve para hacer pruebas unitarias
 // el que uso por defecto angular es Karma con Jasmine
 // en Jasmine si colocamos "xdescribe" decimos que esa prueba unitaria sea escaparlas/ignorada
+
+// Colocar una f en la prueba para que solo te ejecute esa prueba en particular. = "fdescribe"
+// En vez de ir poniendo una x en todas.
 xdescribe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
